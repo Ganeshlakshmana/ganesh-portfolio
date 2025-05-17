@@ -10,20 +10,16 @@ export default function Portfolio() {
   return (
     <div className="bg-gray-900 text-white min-h-screen font-sans">
       <header className="text-center py-20 relative overflow-hidden">
-        <motion.h1
-          className="text-4xl md:text-6xl font-bold"
+        <motion.h1 className="text-4xl md:text-6xl font-bold"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
+          transition={{ duration: 1 }}>
           Ganesh Lakshmana
         </motion.h1>
-        <motion.p
-          className="text-lg md:text-2xl mt-4 text-blue-300"
+        <motion.p className="text-lg md:text-2xl mt-4 text-blue-300"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-        >
+          transition={{ duration: 1, delay: 0.3 }}>
           Data Analyst & Aspiring Data Engineer | Turning complex datasets into actionable insights and solutions.
         </motion.p>
         <motion.img
@@ -66,6 +62,53 @@ export default function Portfolio() {
           <li>✔️ TailwindCSS, Bootstrap</li>
           <li>✔️ Data Visualization (Matplotlib, Seaborn)</li>
         </ul>
+      </section>
+
+      <section className="px-6 md:px-20 py-10">
+        <motion.h2 className="text-3xl font-semibold mb-6 text-blue-400">Projects</motion.h2>
+        <div className="grid md:grid-cols-2 gap-6">
+          {[
+            {
+              title: "ETL Pipeline: NASA APOD API",
+              description: "Automated ETL pipeline using Apache Airflow, Docker, and PostgreSQL.",
+              link: "https://github.com/Ganeshlakshmana/ETL-Pipeline-with-Apache-Airflow-NASA-APOD-API-PostgreSQL"
+            },
+            {
+              title: "Web Scraping with Python",
+              description: "Projects using BeautifulSoup to collect and process web data.",
+              link: "https://github.com/Ganeshlakshmana/WEB-SCRAPING"
+            },
+            {
+              title: "Entertainment Recommendation System",
+              description: "A content-based filtering engine for movies and shows.",
+              link: "https://github.com/Ganeshlakshmana/Entertainment-Recommendation-System"
+            },
+            {
+              title: "Sugarcane Production Analysis",
+              description: "Data visualization project using Python to study agricultural trends.",
+              link: "https://github.com/Ganeshlakshmana/Sugarcane-Production-Analysis"
+            }
+          ].map((project, index) => (
+            <motion.div
+              key={index}
+              className="bg-slate-800 border border-slate-600 hover:border-blue-500 transition duration-300 p-6 rounded-lg"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2 }}
+            >
+              <h4 className="text-xl font-bold text-blue-300">{project.title}</h4>
+              <p className="mt-2 text-gray-300">{project.description}</p>
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:underline inline-block mt-4"
+              >
+                View Project
+              </a>
+            </motion.div>
+          ))}
+        </div>
       </section>
 
       <section className="px-6 md:px-20 py-10">

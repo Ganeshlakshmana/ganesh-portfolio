@@ -20,7 +20,7 @@ export default function Portfolio() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}>
-          Data Analyst & Aspiring Data Engineer | Turning complex datasets into actionable insights and solutions.
+          Data Analyst & Data Engineer | Turning complex datasets into actionable insights and solutions.
         </motion.p>
         <motion.img
           src="/profile.jpg"

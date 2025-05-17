@@ -112,16 +112,40 @@ export default function Portfolio() {
       </section>
 
       <section className="px-6 md:px-20 py-10">
-        <motion.h2 className="text-3xl font-semibold mb-6 text-blue-400">Contact</motion.h2>
-        <ul className="space-y-2 text-lg">
-          <li>Email: <a href="mailto:gani2001guddi@gmail.com" className="text-blue-300 hover:underline">gani2001guddi@gmail.com</a></li>
-          <li className="flex items-center gap-2">
-            <Linkedin size={20} /> <a href="https://www.linkedin.com/in/ganesh-lakshmana-71085b224/" target="_blank" className="text-blue-300 hover:underline">LinkedIn</a>
-          </li>
-          <li className="flex items-center gap-2">
-            <Github size={20} /> <a href="https://github.com/Ganeshlakshmana" target="_blank" className="text-blue-300 hover:underline">GitHub</a>
-          </li>
-        </ul>
+        <motion.h2 className="text-3xl font-semibold mb-6 text-blue-400">Contact Me</motion.h2>
+        <form
+          action="https://formspree.io/f/xkgryybr"
+          method="POST"
+          className="space-y-4 bg-slate-800 p-6 rounded max-w-xl mx-auto"
+        >
+          <input
+            type="text"
+            name="name"
+            required
+            placeholder="Your Name"
+            className="w-full p-3 rounded bg-white text-black"
+          />
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="Your Email"
+            className="w-full p-3 rounded bg-white text-black"
+          />
+          <textarea
+            name="message"
+            rows="5"
+            required
+            placeholder="Your Message"
+            className="w-full p-3 rounded bg-white text-black"
+          ></textarea>
+          <button
+            type="submit"
+            className="bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded text-white font-semibold"
+          >
+            Send Message
+          </button>
+        </form>
       </section>
 
       <footer className="text-center text-gray-300 py-6 border-t border-slate-600">

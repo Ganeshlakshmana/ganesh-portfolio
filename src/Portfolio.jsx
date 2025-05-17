@@ -1,10 +1,19 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, FileDown } from 'lucide-react';
+import { Github, Linkedin, FileDown, ArrowUp } from 'lucide-react';
 
 export default function Portfolio() {
+  const [showTop, setShowTop] = useState(false);
+
   useEffect(() => {
     document.title = "Ganesh Lakshmana - Portfolio";
+
+    const handleScroll = () => {
+      setShowTop(window.scrollY > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
@@ -50,16 +59,24 @@ export default function Portfolio() {
           </motion.div>
         </header>
 
-        {/* About Me */}
-        <section className="px-6 md:px-20 py-10">
-          <motion.h2 className="text-3xl font-semibold mb-6 text-blue-400">About Me</motion.h2>
+        {/* About */}
+        <motion.section className="px-6 md:px-20 py-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-3xl font-semibold mb-6 text-blue-400">About Me</h2>
           <p className="mb-4">I’m Ganesh Lakshmana — a driven and detail-oriented Data Analyst with a deep-rooted passion for uncovering insights from data and building systems that scale. With a background in full-stack development and experience in automating data pipelines, I bring a hybrid skill set that bridges engineering precision with analytical intuition.</p>
           <p className="mb-4">Currently pursuing my Master's in Data Science at IU International University of Applied Sciences, I specialize in data engineering, big data technologies, and cloud-based solutions. What excites me most is turning raw, chaotic datasets into meaningful narratives that empower decision-makers and improve lives. I thrive in fast-paced, collaborative environments where data is at the heart of innovation.</p>
-        </section>
+        </motion.section>
 
         {/* Skills */}
-        <section className="px-6 md:px-20 py-10">
-          <motion.h2 className="text-3xl font-semibold mb-6 text-blue-400">Skills</motion.h2>
+        <motion.section className="px-6 md:px-20 py-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-3xl font-semibold mb-6 text-blue-400">Skills</h2>
           <ul className="grid md:grid-cols-3 gap-4 text-lg text-gray-200">
             <li>✔️ Python, JavaScript (React, Node.js)</li>
             <li>✔️ SQL, PostgreSQL, MongoDB</li>
@@ -68,11 +85,15 @@ export default function Portfolio() {
             <li>✔️ TailwindCSS, Bootstrap</li>
             <li>✔️ Data Visualization (Matplotlib, Seaborn)</li>
           </ul>
-        </section>
+        </motion.section>
 
         {/* Projects */}
-        <section className="px-6 md:px-20 py-10">
-          <motion.h2 className="text-3xl font-semibold mb-6 text-blue-400">Projects</motion.h2>
+        <motion.section className="px-6 md:px-20 py-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-3xl font-semibold mb-6 text-blue-400">Projects</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {[
               {
@@ -116,16 +137,22 @@ export default function Portfolio() {
               </motion.div>
             ))}
           </div>
-        </section>
+        </motion.section>
 
         {/* Contact */}
-        <section className="px-6 md:px-20 py-10">
-          <motion.h2 className="text-3xl font-semibold mb-6 text-blue-400">Contact Me</motion.h2>
+        <motion.section className="px-6 md:px-20 py-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-3xl font-semibold mb-6 text-blue-400">Contact Me</h2>
+
           <form
             action="https://formspree.io/f/xkgryybr"
             method="POST"
             className="space-y-4 bg-slate-800 p-6 rounded max-w-xl mx-auto"
           >
+            <input type="hidden" name="_next" value="/thank-you.html" />
             <input
               type="text"
               name="name"
@@ -154,7 +181,17 @@ export default function Portfolio() {
               Send Message
             </button>
           </form>
-        </section>
+        </motion.section>
+
+        {/* Scroll to Top Button */}
+        {showTop && (
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="fixed bottom-6 right-6 bg-blue-500 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg"
+          >
+            <ArrowUp />
+          </button>
+        )}
 
         {/* Footer */}
         <footer className="text-center text-gray-300 py-6 border-t border-slate-600">
